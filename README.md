@@ -1,13 +1,15 @@
-# React + Vite
+# Portafolio Personal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es mi portafolio personal desarrollado con **React**, **Vite** y **ShadCN UI**. El objetivo de este proyecto es presentar mis habilidades, proyectos y experiencia profesional en un sitio moderno, elegante y responsivo.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** – Biblioteca para construir interfaces de usuario.
+- **Vite** – Herramienta moderna y rápida para desarrollo frontend.
+- **ShadCN UI** – Colección de componentes UI accesibles y bien diseñados, basados en Radix UI y Tailwind CSS.
+- **Tailwind CSS** – Framework de estilos utilitario.
+- **Lucide Icons** – Conjunto de íconos open source utilizados en ShadCN.
+- **ESLint + Prettier** – Linting y formato del código.
 
-## Expanding the ESLint configuration
+## 🧩 Estructura del proyecto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# PortafoliioPersonal
