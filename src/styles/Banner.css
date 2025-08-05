@@ -1,0 +1,120 @@
+@keyframes updown {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.updown {
+  animation: updown 3s linear infinite;
+}
+
+.scale-in {
+  animation: scaleIn 1s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.banner-content {
+  opacity: 0;
+  transform: translateX(-100px);
+  overflow: hidden;
+  width: 100%;
+}
+
+.banner-image {
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+.banner-content.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.banner-image.animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Utilidades adicionales para manejo de texto */
+.word-wrap {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.overflow-wrap-break-word {
+  overflow-wrap: break-word;
+}
+
+.hyphens-auto {
+  hyphens: auto;
+}
+
+/* Estilos específicos para prevenir overflow de texto */
+.banner-content h1,
+.banner-content div,
+.banner-content p {
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Estilos específicos para el texto animado */
+.banner-content .text-2xl span,
+.banner-content .lg\\:text-3xl span {
+  display: inline-block;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}

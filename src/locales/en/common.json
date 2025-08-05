@@ -1,0 +1,30 @@
+{
+  "navigation": {
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects"
+  },
+  "buttons": {
+    "contact": "Contact Me",
+    "toggleMenu": "Toggle menu"
+  },
+  "socialList": [
+    {
+      "label": "LinkedIn",
+      "icon": "Linkedin",
+      "link": "https://www.linkedin.com/in/walter-jimenez22"
+    },
+    {
+      "label": "Github",
+      "icon": "Github",
+      "link": "https://github.com/Privado11"
+    }
+  ],
+  "brand": {
+    "name": "WJ",
+    "fullName": "Walter Jiménez"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "title": "Projects",
+  "subtitle": "These are some of the projects I have worked on. Each one has been an opportunity to learn new technologies and skills, and to apply them in creating innovative solutions.",
+  "viewProject": "View Project",
+  "comingSoon": "Coming Soon",
+  "completed": "Completed",
+  "development": "In Development",
+  "showLess": "Show Less",
+  "showMore": "Show More",
+  "viewRepository": "View repository",
+  "projectsList": [
+    {
+      "title": "Piranha Planner - Landing Page",
+      "description": "A responsive and modern landing page built with React and Vite to present the core features of Piranha Planner.",
+      "link": "https://piranhaplannerl.netlify.app/",
+      "repository": "https://github.com/Privado11/PiranhaPlannerLandingPage",
+      "tech": ["Vite + React", "Tailwind CSS", "ShadCN"],
+      "status": "completed",
+      "release": "stable",
+      "imageKey": "landingPageEn"
+    },
+    {
+      "title": "Piranha Planner",
+      "description": "A collaborative task manager built with React and Supabase. It supports user authentication, task sharing, comments, file uploads, messaging, notifications, and productivity stats.",
+      "link": "https://piranhaplanner.netlify.app/",
+      "repository": "https://github.com/Privado11/PiranhaPlanner",
+      "tech": ["Vite + React", "Tailwind CSS", "Supabase", "ShadCN"],
+      "status": "completed",
+      "release": "beta",
+      "imageKey": "piranhaPlannerEn"
+    },
+    {
+      "title": "Project 3",
+      "description": "Upcoming project in development. Focused on modern technologies and best practices.",
+      "repository": "https://github.com/Privado11/ToDoList",
+      "tech": ["React", "Node.js", "MongoDB"],
+      "status": "development",
+      "release": "alpha",
+      "imageKey": "project3Preview"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "title": "Habilidades",
+  "subtitle": "Como desarrollador frontend, poseo habilidades en el diseño y desarrollo de interfaces de usuario atractivas y funcionales, utilizando mis conocimientos en el área.",
+  "skillsList": [
+    {
+      "name": "Java",
+      "level": 70,
+      "category": "backend",
+      "description": "Programación orientada a objetos y desarrollo backend"
+    },
+    {
+      "name": "Spring Boot",
+      "level": 70,
+      "category": "backend",
+      "description": "Framework para construir aplicaciones web y APIs REST en Java"
+    },
+    {
+      "name": ".NET",
+      "level": 70,
+      "category": "backend",
+      "description": "Desarrollo de aplicaciones web con C# y ASP.NET Core"
+    },
+    {
+      "name": "PostgreSQL",
+      "level": 80,
+      "category": "database",
+      "description": "Gestión de bases de datos y consultas complejas"
+    },
+    {
+      "name": "React",
+      "level": 85,
+      "category": "frontend",
+      "description": "Desarrollo de interfaces modernas y componentes reutilizables"
+    },
+    {
+      "name": "HTML, CSS, JS",
+      "level": 95,
+      "category": "frontend",
+      "description": "Fundamentos del desarrollo web y programación frontend"
+    },
+    {
+      "name": "Tailwind CSS",
+      "level": 90,
+      "category": "tools",
+      "description": "Framework CSS basado en utilidades para desarrollo rápido de interfaces"
+    },
+    {
+      "name": "ShadCN UI",
+      "level": 75,
+      "category": "tools",
+      "description": "Librería de componentes basada en Radix UI y Tailwind CSS"
+    },
+    {
+      "name": "Supabase",
+      "level": 80,
+      "category": "tools",
+      "description": "Backend como servicio con autenticación, base de datos y almacenamiento"
+    },
+    {
+      "name": "Vite",
+      "level": 85,
+      "category": "tools",
+      "description": "Servidor de desarrollo y empaquetador rápido para aplicaciones web modernas"
+    },
+    {
+      "name": "Git",
+      "level": 90,
+      "category": "tools",
+      "description": "Control de versiones para desarrollo colaborativo y despliegue"
+    }
+  ],
+  "categories": {
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Base de datos",
+    "tools": "Herramientas"
+  }
+}

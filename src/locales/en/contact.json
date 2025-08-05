@@ -1,0 +1,25 @@
+{
+  "title": "Send me a message",
+  "subtitle": "Have a project in mind? I'd love to hear from you!",
+  "form": {
+    "placeholders": {
+      "name": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "message": "Message"
+    },
+    "buttons": {
+      "send": "Send Message",
+      "sending": "Sending..."
+    },
+    "validation": {
+      "required": "This field is required",
+      "invalidEmail": "Invalid email address"
+    },
+    "status": {
+      "success": "Message sent successfully!",
+      "error": "Error sending message. Please try again."
+    }
+  }
+}

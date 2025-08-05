@@ -1,0 +1,11 @@
+{
+  "banner": {
+    "welcome": "Welcome to my portfolio",
+    "greeting": "Hi, I'm",
+    "name": "Walter Jiménez",
+    "roles": ["Frontend Developer", "Systems Engineering Student"],
+    "description": "Passionate Frontend Developer and Systems Engineering student. I love technology and enjoy creating attractive and efficient interfaces that enhance user experience.",
+    "cta": "View my projects",
+    "imageAlt": "Header image"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "title": "Skills",
+  "subtitle": "As a frontend developer, I possess skills in designing and developing attractive and functional user interfaces using my knowledge in the field.",
+  "skillsList": [
+    {
+      "name": "Java",
+      "level": 70,
+      "category": "backend",
+      "description": "Object-oriented programming and backend development"
+    },
+    {
+      "name": "Spring Boot",
+      "level": 70,
+      "category": "backend",
+      "description": "Framework for building web applications and REST APIs in Java"
+    },
+    {
+      "name": ".NET",
+      "level": 70,
+      "category": "backend",
+      "description": "Web application development using C# and ASP.NET Core"
+    },
+    {
+      "name": "PostgreSQL",
+      "level": 80,
+      "category": "database",
+      "description": "Database management and complex queries"
+    },
+    {
+      "name": "React",
+      "level": 85,
+      "category": "frontend",
+      "description": "Modern interface development and reusable components"
+    },
+    {
+      "name": "HTML, CSS, JS",
+      "level": 95,
+      "category": "frontend",
+      "description": "Web development fundamentals and frontend programming"
+    },
+    {
+      "name": "Tailwind CSS",
+      "level": 90,
+      "category": "tools",
+      "description": "Utility-first CSS framework for rapid UI development"
+    },
+    {
+      "name": "ShadCN UI",
+      "level": 75,
+      "category": "tools",
+      "description": "Component library built on Radix UI and Tailwind CSS"
+    },
+    {
+      "name": "Supabase",
+      "level": 80,
+      "category": "tools",
+      "description": "Backend as a service with authentication, database, and storage"
+    },
+    {
+      "name": "Vite",
+      "level": 85,
+      "category": "tools",
+      "description": "Fast development server and bundler for modern web apps"
+    },
+    {
+      "name": "Git",
+      "level": 90,
+      "category": "tools",
+      "description": "Version control for collaborative development and deployment"
+    }
+  ],
+  "categories": {
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "tools": "Tools"
+  }
+}

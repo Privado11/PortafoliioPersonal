@@ -1,0 +1,104 @@
+.contact-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.contact-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: white;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.contact-btn:hover::before {
+  width: 100%;
+}
+
+.contact-btn:hover {
+  color: #7c3aed;
+}
+
+
+.social-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.social-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: white;
+  border-radius: 50%;
+  transition: all 0.9s ease;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.social-btn:hover::before {
+  width: 200%;
+  height: 200%;
+}
+
+
+.mobile-contact-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.mobile-contact-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: white;
+  transition: width 0.9s ease;
+  z-index: -1;
+}
+
+.mobile-contact-btn:hover::before {
+  width: 100%;
+}
+
+.mobile-contact-btn:hover {
+  color: #7c3aed !important;
+}
+
+
+.mobile-social-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.mobile-social-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.mobile-social-btn:hover::before {
+  width: 200%;
+  height: 200%;
+}

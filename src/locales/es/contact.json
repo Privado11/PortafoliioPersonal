@@ -1,0 +1,25 @@
+{
+  "title": "Envíame un mensaje",
+  "subtitle": "¿Tienes un proyecto en mente? ¡Me encantaría escuchar de ti!",
+  "form": {
+    "placeholders": {
+      "name": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "phone": "No. Teléfono",
+      "message": "Mensaje"
+    },
+    "buttons": {
+      "send": "Enviar mensaje",
+      "sending": "Enviando..."
+    },
+    "validation": {
+      "required": "Este campo es obligatorio",
+      "invalidEmail": "Correo electrónico inválido"
+    },
+    "status": {
+      "success": "¡Mensaje enviado exitosamente!",
+      "error": "Error al enviar el mensaje. Inténtalo de nuevo."
+    }
+  }
+}
