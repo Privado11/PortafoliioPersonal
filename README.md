@@ -11,5 +11,4 @@ Este es mi portafolio personal desarrollado con **React**, **Vite** y **ShadCN U
 - **Lucide Icons** – Conjunto de íconos open source utilizados en ShadCN.
 - **ESLint + Prettier** – Linting y formato del código.
 
-## 🧩 Estructura del proyecto
 
