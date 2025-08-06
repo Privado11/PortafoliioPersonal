@@ -97,14 +97,14 @@ const Banner = () => {
     }
   };
 
-   const downloadCV = () => {
-     const link = document.createElement("a");
-     link.href = cvFile;
-     link.download = "CV-Walter-Jimenez.pdf";
-     document.body.appendChild(link);
-     link.click();
-     document.body.removeChild(link);
-   };
+  const downloadCV = () => {
+    const link = document.createElement("a");
+    link.href = cvFile;
+    link.download = "CV-Walter-Jimenez.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <section
@@ -120,7 +120,7 @@ const Banner = () => {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-30 sm:py-60 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
           <div
-            className={`banner-content space-y-8 w-full overflow-hidden ${
+            className={`banner-content sm:space-y-8 w-full overflow-hidden ${
               isVisible ? "slide-in-left animate" : ""
             }`}
           >
@@ -130,20 +130,22 @@ const Banner = () => {
               </span>
             </div>
 
-            <div className="space-y-4 w-full overflow-hidden">
+            <div className="sm:space-y-2 w-full overflow-hidden">
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight break-words word-wrap overflow-wrap-break-word hyphens-auto w-full">
                 {t("banner.greeting")}{" "}
                 <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
                   {t("banner.name")}
                 </span>
               </h1>
-              <div className="text-2xl lg:text-3xl text-gray-300 break-words overflow-hidden w-full min-h-[1.5em]">
+
+              <div className="text-2xl lg:text-3xl text-gray-300 break-words overflow-hidden w-full h-16 sm:h-20 lg:h-24 flex items-center">
                 <span
                   className="animate-pulse inline-block w-full break-words word-wrap overflow-wrap-break-word hyphens-auto"
                   style={{
                     wordBreak: "break-word",
                     overflowWrap: "break-word",
                     hyphens: "auto",
+                    lineHeight: "1.2",
                   }}
                 >
                   {text}
