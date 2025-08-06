@@ -120,7 +120,7 @@ const Banner = () => {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-30 sm:py-60 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
           <div
-            className={`banner-content sm:space-y-8 w-full overflow-hidden ${
+            className={`banner-content space-y-8 w-full overflow-hidden ${
               isVisible ? "slide-in-left animate" : ""
             }`}
           >
