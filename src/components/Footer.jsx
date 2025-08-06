@@ -32,7 +32,7 @@ const Footer = () => {
     <footer className="bg-gray-900 py-12 px-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div>
+          <div className="text-center md:text-left">
             <Button
               onClick={scrollToHome}
               className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent hover:from-purple-300 hover:to-pink-400 transition-all duration-300 cursor-pointer"
