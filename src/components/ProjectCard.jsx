@@ -90,24 +90,34 @@ const ProjectCard = ({ project }) => {
     }
   };
 
-  const getStatusStyle = (status) => {
-    if (status === "completed") {
-      return {
-        bgColor: "bg-slate-700/80",
-        textColor: "text-emerald-300",
-        borderColor: "border-slate-600",
-        icon: CheckCircle,
-        label: t("completed"),
-      };
-    }
-    return {
-      bgColor: "bg-slate-700/80",
-      textColor: "text-amber-300",
-      borderColor: "border-slate-600",
-      icon: Clock,
-      label: t("development"),
-    };
-  };
+ const getStatusStyle = (status) => {
+   const styles = {
+     completed: {
+       bgColor: "bg-slate-700/80",
+       textColor: "text-emerald-300",
+       borderColor: "border-slate-600",
+       icon: CheckCircle,
+       label: t("completed"),
+     },
+     planned: {
+       bgColor: "bg-slate-700/80",
+       textColor: "text-blue-300",
+       borderColor: "border-slate-600",
+       icon: Clock,
+       label: t("planned"),
+     },
+   };
+
+   return (
+     styles[status] || {
+       bgColor: "bg-slate-700/80",
+       textColor: "text-amber-300",
+       borderColor: "border-slate-600",
+       icon: Clock,
+       label: t("development"),
+     }
+   );
+ };
 
   const releaseStyle = getReleaseStyle(project.release);
   const statusStyle = getStatusStyle(project.status);
@@ -137,7 +147,6 @@ const ProjectCard = ({ project }) => {
 
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
 
-        {/* Badges reubicados en la parte inferior de la imagen */}
         <div className="absolute bottom-3 left-3 right-3 flex justify-between items-end">
           <div className="transform group-hover:scale-105 transition-transform duration-300">
             <div
@@ -204,7 +213,6 @@ const ProjectCard = ({ project }) => {
           )}
         </div>
 
-        {/* Tech tags con colores más sutiles */}
         <div className="min-h-[60px] flex flex-wrap gap-2 items-start flex-shrink-0 mb-2">
           {project.tech.map((tech, techIndex) => (
             <span
@@ -217,35 +225,64 @@ const ProjectCard = ({ project }) => {
         </div>
 
         <div className="flex-shrink-0 mt-auto">
-          <div className="flex sm:justify-between flex-col sm:flex-row gap-2 sm:gap-0">
-            {project.link ? (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center text-center space-x-2 w-full sm:w-auto bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
-              >
-                <span>{t("viewProject")}</span>
-                <ExternalLink className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
-              </a>
+          {project.link || project.repository ? (
+            project.link && project.repository ? (
+           
+              <div className="flex sm:justify-between flex-col sm:flex-row gap-2 sm:gap-0">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center text-center space-x-2 w-full sm:w-auto bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
+                >
+                  <span>{t("viewProject")}</span>
+                  <ExternalLink className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
+                </a>
+                <a
+                  href={project.repository}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center text-center space-x-2 w-full sm:w-auto bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-500/25"
+                >
+                  <span>{t("viewRepository")}</span>
+                  <LuGithub className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+                </a>
+              </div>
             ) : (
-              <div className="inline-flex items-center justify-center text-center space-x-2 w-full sm:w-auto bg-gray-600/50 text-gray-400 px-4 py-2 rounded-lg font-medium cursor-not-allowed">
+             
+              <div className="flex justify-center">
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center text-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
+                  >
+                    <span>{t("viewProject")}</span>
+                    <ExternalLink className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
+                  </a>
+                ) : (
+                  <a
+                    href={project.repository}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center text-center space-x-2 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-500/25"
+                  >
+                    <span>{t("viewRepository")}</span>
+                    <LuGithub className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+                  </a>
+                )}
+              </div>
+            )
+          ) : (
+            
+            <div className="flex justify-center">
+              <div className="inline-flex items-center justify-center text-center space-x-2 bg-gray-600/50 text-gray-400 px-4 py-2 rounded-lg font-medium cursor-not-allowed">
                 <Clock className="w-4 h-4" />
                 <span>{t("comingSoon")}</span>
               </div>
-            )}
-            {project.repository && (
-              <a
-                href={project.repository}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center text-center space-x-2 w-full sm:w-auto bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-500/25"
-              >
-                <span>{t("viewRepository")}</span>
-                <LuGithub className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
-              </a>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -30,11 +30,11 @@
       "imageKey": "piranhaPlannerEn"
     },
     {
-      "title": "Project 3",
-      "description": "Upcoming project in development. Focused on modern technologies and best practices.",
-      "repository": "https://github.com/Privado11/ToDoList",
-      "tech": ["React", "Node.js", "MongoDB"],
-      "status": "development",
+      "title": "Medical Appointment Management",
+      "description": "Planned web application aimed at efficiently managing medical appointments. It will feature authentication and role-based access (administrator, doctor, patient), consultation scheduling, medical history tracking, notifications, and custom dashboards per user type. The frontend will be built with React and the backend with Spring Boot, following fullstack best practices with a focus on security, usability, and scalability.",
+      "repository": "",
+      "tech": ["React", "Spring Boot", "Java", "PostgreSQL", "JWT"],
+      "status": "planned",
       "release": "alpha",
       "imageKey": "project3Preview"
     }

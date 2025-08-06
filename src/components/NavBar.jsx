@@ -3,6 +3,7 @@ import { Menu, X, Globe } from "lucide-react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
+import cvFile from "../assets/curriculum.pdf";
 import "../styles/NavBar.css";
 
 const Navbar = ({ setErrors }) => {
@@ -134,6 +135,15 @@ const Navbar = ({ setErrors }) => {
     },
   ];
 
+   const downloadCV = () => {
+     const link = document.createElement("a");
+     link.href = cvFile;
+     link.download = "CV-Walter-Jimenez.pdf";
+     document.body.appendChild(link);
+     link.click();
+     document.body.removeChild(link);
+   };
+
   return (
     <nav
       className={`fixed w-full top-0 z-50 transition-all duration-300 sm:px-5 ${
@@ -206,6 +216,13 @@ const Navbar = ({ setErrors }) => {
             >
               {t("buttons.contact")}
             </Button>
+
+            <Button
+              onClick={downloadCV}
+              className="cv-btn ml-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-0 transition-all duration-300 cursor-pointer"
+            >
+              {t("buttons.downloadCV")}
+            </Button>
           </div>
 
           <div className="md:hidden">
@@ -275,6 +292,18 @@ const Navbar = ({ setErrors }) => {
                   onClick={() => scrollToSection("contact")}
                 >
                   {t("buttons.contact")}
+                </Button>
+              </div>
+
+              <div className="px-3 py-2">
+                <Button
+                  className="mobile-cv-btn w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-0 transition-all duration-300 mb-2"
+                  onClick={() => {
+                    downloadCV();
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  {t("buttons.downloadCV")}
                 </Button>
               </div>
             </div>

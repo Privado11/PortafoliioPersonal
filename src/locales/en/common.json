@@ -6,7 +6,8 @@
   },
   "buttons": {
     "contact": "Contact Me",
-    "toggleMenu": "Toggle menu"
+    "toggleMenu": "Toggle menu",
+    "downloadCV": "Download CV"
   },
   "socialList": [
     {

@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import bannersvg from "../assets/banner.svg";
 import background from "../assets/banner-bg.png";
+import cvFile from "../assets/curriculum.pdf";
 import "../styles/Banner.css";
 
 const Banner = () => {
@@ -96,6 +97,15 @@ const Banner = () => {
     }
   };
 
+   const downloadCV = () => {
+     const link = document.createElement("a");
+     link.href = cvFile;
+     link.download = "CV-Walter-Jimenez.pdf";
+     document.body.appendChild(link);
+     link.click();
+     document.body.removeChild(link);
+   };
+
   return (
     <section
       id="home"
@@ -145,13 +155,35 @@ const Banner = () => {
               {t("banner.description")}
             </p>
 
-            <Button
-              onClick={scrollToProjects}
-              className="group cursor-pointer flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 px-8 py-4 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
-            >
-              <span>{t("banner.cta")}</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 items-start">
+              <Button
+                onClick={scrollToProjects}
+                className="group cursor-pointer flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 px-8 py-4 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+              >
+                <span>{t("banner.cta")}</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+
+              <Button
+                onClick={downloadCV}
+                className="group cursor-pointer flex items-center space-x-2 border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white bg-transparent px-8 py-4 rounded-full font-medium transition-all duration-300 transform hover:scale-105"
+              >
+                <span>{t("banner.downloadCV")}</span>{" "}
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              </Button>
+            </div>
           </div>
 
           <div className="flex justify-center lg:justify-end w-full overflow-hidden">

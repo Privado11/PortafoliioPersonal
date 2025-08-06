@@ -6,6 +6,7 @@
     "roles": ["Desarrollador Frontend", "Estudiante de Ingeniería de Sistemas"],
     "description": "Desarrollador Frontend apasionado y estudiante de Ingeniería de Sistemas. Me encanta la tecnología y disfruto creando interfaces atractivas y eficientes que mejoren la experiencia de los usuarios.",
     "cta": "Ver mis proyectos",
-    "imageAlt": "Imagen de presentación"
+    "imageAlt": "Imagen de presentación",
+    "downloadCV": "Descargar CV"
   }
 }

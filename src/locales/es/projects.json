@@ -29,15 +29,16 @@
       "release": "beta",
       "imageKey": "piranhaPlannerEs"
     },
-    {
-      "title": "Proyecto 3",
-      "description": "Proyecto en desarrollo centrado en tecnologías modernas y buenas prácticas.",
-      "repository": "https://github.com/Privado11/ToDoList",
-      "tech": ["React", "Node.js", "MongoDB"],
-      "status": "development",
-      "release": "alpha",
-      "imageKey": "project3Preview"
-    }
+   {
+     "title": "Gestión de Citas Médicas",
+     "description": "Aplicación web planificada para gestionar citas médicas de forma eficiente. Contará con autenticación y control de acceso por roles (administrador, médico, paciente), programación de consultas, historial clínico, notificaciones y paneles personalizados según el tipo de usuario. El frontend estará desarrollado en React y el backend en Spring Boot, siguiendo buenas prácticas de desarrollo fullstack, con enfoque en la seguridad, usabilidad y escalabilidad.",
+     "repository": "",
+     "tech": ["React", "Spring Boot", "Java", "PostgreSQL", "JWT"],
+     "status": "planned",
+     "release": "alpha",
+     "imageKey": "project3Preview"
+   }
+
   ]
 }
   

@@ -1,8 +1,12 @@
-html, body{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+html, body {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
   background-color: #0f0f0f;
   color: #f0f0f0;
   scroll-behavior: smooth;
+  margin: 0;                         /* También elimina margin */
   padding: 0;
+  line-height: 1.6;                  /* Mejora legibilidad */
+  -webkit-font-smoothing: antialiased; /* Suaviza fuente en WebKit */
+  -moz-osx-font-smoothing: grayscale;  /* Suaviza fuente en Firefox/Mac */
 }
-
