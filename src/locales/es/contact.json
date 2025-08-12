@@ -1,25 +1,34 @@
 {
   "title": "Envíame un mensaje",
-  "subtitle": "¿Tienes un proyecto en mente? ¡Me encantaría escuchar de ti!",
+  "subtitle": "¿Tienes un proyecto en mente? ¡Me encantaría saber de ti!",
   "form": {
     "placeholders": {
       "name": "Nombre",
       "lastName": "Apellido",
-      "email": "Correo electrónico",
-      "phone": "No. Teléfono",
+      "email": "Correo Electrónico",
+      "phone": "Número de Teléfono",
       "message": "Mensaje"
     },
     "buttons": {
-      "send": "Enviar mensaje",
+      "send": "Enviar Mensaje",
       "sending": "Enviando..."
     },
     "validation": {
-      "required": "Este campo es obligatorio",
-      "invalidEmail": "Correo electrónico inválido"
+      "required": "Este campo es requerido",
+      "minLength": "Mínimo 2 caracteres",
+      "invalidName": "Solo letras y espacios permitidos",
+      "invalidLastName": "Solo letras y espacios permitidos",
+      "invalidEmail": "Dirección de correo inválida",
+      "invalidPhone": "Formato de teléfono inválido",
+      "messageMinLength": "El mensaje debe tener al menos 10 caracteres",
+      "messageMaxLength": "El mensaje no puede exceder 1000 caracteres"
     },
     "status": {
       "success": "¡Mensaje enviado exitosamente!",
-      "error": "Error al enviar el mensaje. Inténtalo de nuevo."
+      "error": "Error al enviar mensaje. Por favor intenta de nuevo."
+    },
+    "hints": {
+      "phone": "Formato: +573103456789 o 1234567890"
     }
   }
 }

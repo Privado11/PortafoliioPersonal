@@ -16,6 +16,11 @@ const Contact = ({ errors, setErrors }) => {
   const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation("contact");
 
+  const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const PHONE_REGEX = /^\+?[1-9]\d{0,14}$/;
+  const NAME_REGEX = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/; 
+  const PHONE_INPUT_REGEX = /^[+]?[0-9]*$/; 
+
   useEffect(() => {
     const section = document.getElementById("contact");
     if (!section) return;
@@ -44,19 +49,52 @@ const Contact = ({ errors, setErrors }) => {
   const validateForm = () => {
     const newErrors = {};
 
+
     if (!formData.name.trim()) {
       newErrors.name = t("form.validation.required");
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = t("form.validation.minLength") || "Mínimo 2 caracteres";
+    } else if (!NAME_REGEX.test(formData.name.trim())) {
+      newErrors.name =
+        t("form.validation.invalidName") || "Solo letras y espacios permitidos";
     }
+
+  
     if (!formData.lastName.trim()) {
       newErrors.lastName = t("form.validation.required");
+    } else if (formData.lastName.trim().length < 2) {
+      newErrors.lastName =
+        t("form.validation.minLength") || "Mínimo 2 caracteres";
+    } else if (!NAME_REGEX.test(formData.lastName.trim())) {
+      newErrors.lastName =
+        t("form.validation.invalidLastName") ||
+        "Solo letras y espacios permitidos";
     }
+
+
     if (!formData.email.trim()) {
       newErrors.email = t("form.validation.required");
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (!EMAIL_REGEX.test(formData.email.trim())) {
       newErrors.email = t("form.validation.invalidEmail");
     }
+
+
+    if (formData.phone.trim() && !PHONE_REGEX.test(formData.phone.trim())) {
+      newErrors.phone =
+        t("form.validation.invalidPhone") || "Formato de teléfono inválido";
+    }
+
+
     if (!formData.message.trim()) {
       newErrors.message = t("form.validation.required");
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message =
+        t("form.validation.messageMinLength") ||
+        "El mensaje debe tener al menos 10 caracteres";
+    } else if (formData.message.trim().length > 1000) {
+      newErrors.message =
+        t("form.validation.messageMaxLength") ||
+        "El mensaje no puede exceder 1000 caracteres";
     }
 
     setErrors(newErrors);
@@ -111,9 +149,67 @@ const Contact = ({ errors, setErrors }) => {
   };
 
   const handleInputChange = (field, value) => {
-    setFormData({ ...formData, [field]: value });
+    let processedValue = value;
+
+
+    switch (field) {
+      case "name":
+      case "lastName":
+     
+        if (value && !NAME_REGEX.test(value)) {
+          return; 
+        }
+
+        processedValue = value
+          .split(" ")
+          .map(
+            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+          )
+          .join(" ");
+        break;
+
+      case "email":
+
+        processedValue = value.toLowerCase().replace(/\s/g, "");
+        break;
+
+      case "phone":
+ 
+        if (value && !PHONE_INPUT_REGEX.test(value)) {
+          return; 
+        }
+
+        if (value.length > 16) {
+          return;
+        }
+        break;
+
+      case "message":
+
+        if (value.length > 1000) {
+          return;
+        }
+        break;
+
+      default:
+        break;
+    }
+
+    setFormData({ ...formData, [field]: processedValue });
+
+
     if (errors[field]) {
       setErrors({ ...errors, [field]: "" });
+    }
+  };
+
+  const handlePhonePaste = (e) => {
+    e.preventDefault();
+    const pastedText = e.clipboardData.getData("text");
+    const cleanedText = pastedText.replace(/[^\d+]/g, ""); 
+
+    if (cleanedText.length <= 16 && PHONE_INPUT_REGEX.test(cleanedText)) {
+      handleInputChange("phone", cleanedText);
     }
   };
 
@@ -124,7 +220,6 @@ const Contact = ({ errors, setErrors }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-
           <div
             className={`contact-form transition-all duration-500 relative z-20 ${
               isVisible
@@ -170,6 +265,7 @@ const Contact = ({ errors, setErrors }) => {
                     placeholder={t("form.placeholders.name")}
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
+                    maxLength="50"
                     className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent backdrop-blur-sm transition-colors ${
                       errors.name ? "border-red-500" : "border-gray-700"
                     }`}
@@ -186,6 +282,7 @@ const Contact = ({ errors, setErrors }) => {
                     onChange={(e) =>
                       handleInputChange("lastName", e.target.value)
                     }
+                    maxLength="50"
                     className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent backdrop-blur-sm transition-colors ${
                       errors.lastName ? "border-red-500" : "border-gray-700"
                     }`}
@@ -211,6 +308,7 @@ const Contact = ({ errors, setErrors }) => {
                     placeholder={t("form.placeholders.email")}
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
+                    maxLength="100"
                     className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent backdrop-blur-sm transition-colors ${
                       errors.email ? "border-red-500" : "border-gray-700"
                     }`}
@@ -225,8 +323,19 @@ const Contact = ({ errors, setErrors }) => {
                     placeholder={t("form.placeholders.phone")}
                     value={formData.phone}
                     onChange={(e) => handleInputChange("phone", e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent backdrop-blur-sm"
+                    onPaste={handlePhonePaste}
+                    maxLength="16"
+                    className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent backdrop-blur-sm transition-colors ${
+                      errors.phone ? "border-red-500" : "border-gray-700"
+                    }`}
                   />
+                  {errors.phone && (
+                    <p className="text-red-400 text-sm mt-1">{errors.phone}</p>
+                  )}
+                  <p className="text-gray-400 text-xs mt-1">
+                    {t("form.hints.phone") ||
+                      "Formato: +1234567890 o 1234567890"}
+                  </p>
                 </div>
               </div>
 
@@ -237,15 +346,23 @@ const Contact = ({ errors, setErrors }) => {
                     : "opacity-0 translate-y-8"
                 }`}
               >
-                <textarea
-                  rows="6"
-                  placeholder={t("form.placeholders.message")}
-                  value={formData.message}
-                  onChange={(e) => handleInputChange("message", e.target.value)}
-                  className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent backdrop-blur-sm transition-colors ${
-                    errors.message ? "border-red-500" : "border-gray-700"
-                  }`}
-                ></textarea>
+                <div className="relative">
+                  <textarea
+                    rows="6"
+                    placeholder={t("form.placeholders.message")}
+                    value={formData.message}
+                    onChange={(e) =>
+                      handleInputChange("message", e.target.value)
+                    }
+                    maxLength="1000"
+                    className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent backdrop-blur-sm transition-colors resize-none ${
+                      errors.message ? "border-red-500" : "border-gray-700"
+                    }`}
+                  ></textarea>
+                  <div className="absolute bottom-3 right-3 text-xs text-gray-400">
+                    {formData.message.length}/1000
+                  </div>
+                </div>
                 {errors.message && (
                   <p className="text-red-400 text-sm mt-1">{errors.message}</p>
                 )}
@@ -272,7 +389,6 @@ const Contact = ({ errors, setErrors }) => {
               </div>
             </form>
           </div>
-
 
           <div
             className={`hidden lg:flex justify-center transition-all duration-500 delay-300 relative z-10 ${
@@ -307,7 +423,6 @@ const Contact = ({ errors, setErrors }) => {
               ></div>
             </div>
           </div>
-
 
           <div className="lg:hidden flex justify-center py-8">
             <div className="relative z-10">

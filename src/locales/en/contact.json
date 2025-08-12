@@ -15,11 +15,20 @@
     },
     "validation": {
       "required": "This field is required",
-      "invalidEmail": "Invalid email address"
+      "minLength": "Minimum 2 characters",
+      "invalidName": "Only letters and spaces allowed",
+      "invalidLastName": "Only letters and spaces allowed",
+      "invalidEmail": "Invalid email address",
+      "invalidPhone": "Invalid phone format",
+      "messageMinLength": "Message must be at least 10 characters",
+      "messageMaxLength": "Message cannot exceed 1000 characters"
     },
     "status": {
       "success": "Message sent successfully!",
       "error": "Error sending message. Please try again."
+    },
+    "hints": {
+      "phone": "Format: +573103456789 or 1234567890"
     }
   }
 }
